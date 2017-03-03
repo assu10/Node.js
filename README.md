@@ -13,3 +13,4 @@ Downloads
 - Node.js v6 API (https://nodejs.org/dist/latest-v6.x/docs/api/all.html)
 - ejs (https://github.com/tj/ejs)
 - jade(pug) (https://github.com/pugjs/pug)
+- supervisor (https://github.com/petruisfan/node-supervisor)
