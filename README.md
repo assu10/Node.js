@@ -14,3 +14,4 @@ Downloads
 - ejs (https://github.com/tj/ejs)
 - jade(pug) (https://github.com/pugjs/pug)
 - supervisor (https://github.com/petruisfan/node-supervisor)
+- forever (https://github.com/foreverjs/forever)
