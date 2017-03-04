@@ -15,3 +15,4 @@ Downloads
 - jade(pug) (https://github.com/pugjs/pug)
 - supervisor (https://github.com/petruisfan/node-supervisor)
 - forever (https://github.com/foreverjs/forever)
+- 시멘틱 버저닝 (http://semver.org/lang/ko/)
