@@ -25,3 +25,4 @@ _
 - express 한글 API (http://firejune.io/express)
 _
 - Node.js에서 사용가능한 UUID 모듈 (https://github.com/broofa/node-uuid)
+- mysql 모듈 (https://github.com/mysqljs/mysql)
