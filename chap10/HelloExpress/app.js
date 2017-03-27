@@ -1,5 +1,6 @@
 /*******************************
-TITLE: express 프레임워크
+TITLE: express 프레임워크 - 서버생성, 미들웨어 설정, 페이지 라우트, 모듈화, 페이지 렌더링
+       http://firejune.io/express/guide
 AUTHOR: Assu
 DATE: 2017.03.22
 *******************************/
