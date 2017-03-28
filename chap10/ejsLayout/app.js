@@ -46,21 +46,29 @@ app.get('/', function(req, res) {
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
-  res.render('error', {
-      message: err.message,
-      error: {}
-  });
+  next(err);
 });
 
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+// 에러 핸들러
+// development 환경에서의 오류 처리
+if (app.get('env') === 'development') {
+    app.use(function(err, req, res, next) {
+        res.status(err.status || 500);
+        res.render('error', {
+            message: err.message,
+            error: err
+        });
+    });
+}
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+
+// production 환경에서의 오류 처리
+app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('error', {
+        message: err.message,
+        error: {}
+    });
 });
 
 // 모듈화
