@@ -4,6 +4,7 @@
 <head>
     <title>Web Chat</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8">
     <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
@@ -12,6 +13,23 @@
         $(function() {
             // 변수 선언
             var socket = io.connect();
+
+            // 방 생성하기 버튼 클릭 시 방 이름을 join 이벤트와 함께 서버로 전달
+            $('#btnCreate').click(function() {
+                if ($('#roomNm').val().length <= 0) {
+                    alert('방 이름을 입력해주세요.');
+                    $('#roomNm').focus();
+                    return false;
+                }
+                //
+                socket.emit('join', $('#roomNm').val());
+            });
+
+            // 방 생성 후 채팅 화면으로 연결
+            socket.on('moveChat', function(data) {
+                $('#spanRoomNm').html(data);
+                location.href = '#chatpage';
+            });
 
             // 이벤트 연결 (서버에서 전달받은 데이터 노출)
             socket.on('messageAssu', function(data) {
@@ -24,38 +42,60 @@
 
                 $(output).prependTo('#content');
                 $('#content').listview('refresh');
+
+                // 인풋박스 내용 초기화
+                $('#message').val('').focus();
             });
 
             // 버튼 클릭 시 서버의 messageAssu 이벤트 발생시킴과 동시에 데이터 전달
-            $('button').click(function() {
+            $('#btnSend').click(function() {
+                if ($('#message').val().length <= 0) {
+                    alert('내용을 입력해주세요.');
+                    $('#message').focus();
+                    return false;
+                }
                 socket.emit('messageAssu', {
                     name: $('#name').val(),
                     message: $('#message').val(),
-                    date: new Date().toUTCString()
+                    date: new Date().toUTCString(),
+                    roomNm: $('#spanRoomNm').html()
                 });
             });
         });
     </script>
 </head>
 <body>
+    <!-- Nick Name 입력 -->
     <div data-role="page">
         <div data-role="header">
-            <h1>Socket.io Chat1</h1>
+            <h1>Socket.io Chat - Nick Name 입력</h1>
         </div>
         <div data-role="content">
             <h3>Nick Name</h3>
             <input id="name" />
-            <a data-role="button" href="#chatpage">Start Chat</a>
+            <a data-role="button" href="#roompage">Start Chat</a>
         </div>
     </div>
 
+    <!-- 방 생성 화면 -->
+    <div data-role="page" id="roompage">
+        <div data-role="header">
+            <h1>Socket.io - 방 생성</h1>
+        </div>
+        <div data-role="content">
+            <input id="roomNm" />
+            <button id="btnCreate">방 생성하기</button>
+        </div>
+    </div>
+
+    <!-- 채팅 화면 -->
     <div data-role="page" id="chatpage">
         <div data-role="header">
-            <h1>Socket.io Chat2</h1>
+            <h1>Socket.io - <span id="spanRoomNm"></span></h1>
         </div>
         <div data-role="content">
             <input id="message" />
-            <button>Button</button>
+            <button id="btnSend">보내기</button>
             <ul id="content" data-role="listview" data-inset="true"></ul>
         </div>
     </div>
