@@ -50,8 +50,15 @@ server.listen(52273, function() {
 // 소켓 서버 생성 및 실행
 var io = socketio.listen(server);
 io.sockets.on('connection', function(socket) {
+    // 예약 이벤트
     socket.on('reserve', function(data) {
         seats[data.y][data.x] = 2;
         io.sockets.emit('reserve', data);
+    });
+
+    // 취소 이벤트
+    socket.on('cancel', function(data) {
+        seats[data.y][data.x] = 1;
+        io.sockets.emit('cancel', data);
     });
 });
