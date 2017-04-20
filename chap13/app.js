@@ -66,8 +66,8 @@ io.sockets.on('connection', function(socket) {
         console.log('onReturn', products[index]);
 
         // 타이머 제거
-        if (cart[index].timerID != null) {
-            clearTimeout(cart[index].timerID);    
+        if (cart[index].timerID !== null) {
+            clearTimeout(cart[index].timerID);
         }
 
         // 카트에서 물건 제거
