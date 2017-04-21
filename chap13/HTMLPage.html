@@ -38,6 +38,10 @@
                 }
             });
 
+            socket.on('countTimer', function(data) {
+                $('#buyTimer_'+data.index).html(data.seconds);
+            });
+
             // 문서 객체 이벤트 연결
             $('.product > a[data-icon]').click(function() {
                 // toggle : on(장바구니에 담가지 않은 상태) / off(장바구니에 담긴 상태)
@@ -53,6 +57,10 @@
 
                     // 토글 변수 변경
                     $(this).attr('toggle', 'off');
+
+                    // 구매 가능 시간 시간 표시
+                    $('#buyGuide_'+$(this).attr('data-index')).show();
+
                 } else {
                 // 장바구니에 담긴 상태
                     var index = $(this).attr('data-index');
@@ -94,6 +102,7 @@
                             <h3><%= item.name%></h3>
                             <p><%=item.price%> 원</p>
                             <span class="ul-li-count"><%=item.count%></span>
+                            <span id="buyGuide_<%=item.index%>" style="display:block">구매 가능 시간 : <span id="buyTimer_<%=item.index%>">0</span>초</span>
                         </a>
                         <a href="#" data-icon="heart" data-index="<%=item.index%>"></a>
                     </li>

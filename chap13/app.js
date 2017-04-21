@@ -99,6 +99,19 @@ io.sockets.on('connection', function(socket) {
             onReturn(index);
         }, 1000*10);    // 10초
 
+        // countTimer
+        var sec = 10;
+        var timerID = setInterval(function() {
+            if (sec-- >= 0) {
+                io.sockets.emit('countTimer', {
+                    index:index,
+                    seconds:sec+1
+                });
+            } else {
+                clearTimeout(timerID);
+            }
+        }, 1000);
+
         console.log('--------------------');
         console.log('cart cart', cart);
 
@@ -128,4 +141,5 @@ io.sockets.on('connection', function(socket) {
     socket.on('return', function(index) {
         onReturn(index);
     });
+
 });
