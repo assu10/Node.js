@@ -6,6 +6,7 @@ Downloads
 -
 - node.js (https://nodejs.org/ko/download/)
 - Git (https://www.git-scm.com/)
+- Editor (Atom)
 
 알아두면 편한 사이트
 -
