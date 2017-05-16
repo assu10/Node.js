@@ -29,7 +29,7 @@ var products = [
     new Product('Node.js', 'chrome.png', 32000, 30),
     new Product('Socket.io', 'chrome.png', 17000, 30),
     new Product('Connect', 'chrome.png', 18000, 30),
-    new Product('Express', 'chrome.png', 31000, 30),   
+    new Product('Express', 'chrome.png', 31000, 30),
     new Product('EJS', 'chrome.png', 12000, 30)
 ];
 
@@ -42,7 +42,7 @@ app.use(express.static(__dirname + '/public'));
 
 // 라우트 수행 (html 파일을 읽어서 ejs 모듈을 사용해 products 객체 전달)
 app.get('/', function(req, res) {
-    var htmlPage = fs.readFileSync('HTMLPage.html' ,'utf8');
+    var htmlPage = fs.readFileSync('HTMLPage.html' ,'utf8');  
 
     // 응답
     res.send(ejs.render(htmlPage, {
