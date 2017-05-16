@@ -10,7 +10,7 @@ DATE: 2017.04.19
 var fs = require('fs');             // 파일 읽을 때 사용
 var ejs = require('ejs');           // 파일 읽을 때 사용
 var http = require('http');         // 웹 서버 실행 시 사용
-var express = require('express');   // 웹 서버 생성 시 사용
+var express = require('express');   // 웹 서버 생성 시 사용  
 
 // 생성자 함수 선언
 var counter = 0;
