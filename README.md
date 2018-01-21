@@ -1,30 +1,28 @@
-# Node.js #
-
-Node.js for ***windows node-v6.9.5***
+# MicroService Architecture #
 
 Downloads
 -
-- node.js (https://nodejs.org/ko/download/)
-- Git (https://www.git-scm.com/)
+- Maven 3.5.2 (https://maven.apache.org/download.cgi)
 
-알아두면 편한 사이트
+
+Contents
 -
-- Node.js 공식사이트 (https://nodejs.org/ko/)
-- Node.js v6 API (https://nodejs.org/dist/latest-v6.x/docs/api/all.html)
-- Node.js 한글 API (http://nodejs.sideeffect.kr/docs/)
--
-- ejs (https://github.com/tj/ejs)
-- jade(pug) (https://github.com/pugjs/pug)
-- supervisor (https://github.com/petruisfan/node-supervisor)
-- forever (https://github.com/foreverjs/forever)
--
-- 시멘틱 버저닝 (http://semver.org/lang/ko/)
--
-- express 4.x API (http://expressjs.com/en/4x/api.html)
-- express 미들웨어 모듈 (http://expressjs.com/en/resources/middleware.html)
-- express 한글 API (http://firejune.io/express)
--
-- Node.js에서 사용가능한 UUID 모듈 (https://github.com/broofa/node-uuid)
-- mysql 모듈 (https://github.com/mysqljs/mysql)
--
-- socket.io (https://socket.io/)
+- Chap01. 쉽게 알아보는 마이크로서비스
+- Chap02. 스프링 부트로 만드는 마이크로 서비스
+>JDK 1.8<br />
+intelliJ<br />
+Maven 3.5.2 (https://maven.apache.org/download.cgi)<br />
+spring boot 1.3.5 release<br />
+spring framework 4.2.6 release<br />
+
+- Chap03. 마이크로서비스 개념 적용
+- Chap04. 마이크로서비스의 진화: 사례 연구
+- Chap05. 스프링 클라우드를 활용한 마이크로서비스 확장
+- Chap06. 마이크로서비스 자동 확장
+- Chap07. 마이크로서비스 로깅 및 모니터링
+- Chap08. 도커 컨테이너와 마이크로서비스
+- Chap09. 메소드와 마라톤을 이용한 도커화된 마이크로서비스 관리
+
+ 알아두면 편한 사이트
+ -
+ - 
